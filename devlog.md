@@ -58,7 +58,6 @@
 - setup database structure (TABLES):
   - create ./data/db_structure.sql: `mkdir data && touch data/db_structure.sql`
   - fill ./data/db_structure.sql following the model on https://app.sqldbm.com/
-    - (sqldbm creds: bbenti@pm.me / keepass)
   - create the tables: `psql api -f data/db_structure.sql`
     - note: ./data/db_structure.sql removes the default 'public' schema, a possible 'api' schema and (re)create an 'api' schema before creating all the tables using this namespace
 
