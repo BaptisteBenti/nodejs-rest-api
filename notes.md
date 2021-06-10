@@ -1,5 +1,23 @@
 # Notes
 
+<!-- TOC -->
+
+- [Notes](#notes)
+  - [API](#api)
+    - [Argumentaire](#argumentaire)
+    - [Implémenter une API](#impl%C3%A9menter-une-api)
+    - [Sécuriser une API](#s%C3%A9curiser-une-api)
+    - [Documenter une API](#documenter-une-api)
+    - [Documentation](#documentation)
+    - [Server](#server)
+  - [Database](#database)
+    - [Argumentaire](#argumentaire)
+    - [misc](#misc)
+    - [documentation](#documentation)
+  - [non trié](#non-tri%C3%A9)
+
+<!-- /TOC -->
+
 ## API
 
 ### Argumentaire
@@ -50,12 +68,11 @@
   - https://blog.api.rakuten.net/best-practices-for-writing-api-documentation/
   - https://medium.com/swlh/restful-api-documentation-made-easy-with-swagger-and-openapi-6df7f26dcad
 
-### Documentation GraphQL
+### Documentation
 
-  - https://graphql.org/learn/
-  - https://fr.wikipedia.org/wiki/GraphQL
-
-### Autres documents
+  - GraphQL
+    - https://graphql.org/learn/
+    - https://fr.wikipedia.org/wiki/GraphQL
 
   - Woocommerce
     - doc: https://developer.woocommerce.com/
@@ -94,14 +111,53 @@ RESTful Design with NodeJs:
 
 ## Database
 
+### Argumentaire
+
 - Pourquoi Node est souvent associé au SGBD MongoDB et son ORM Mongoose ?
-- MongoDB est un système NoSQL (non-relational database), nous devrions utiliser un SGBD relationnel pour gérer les données d'un site e-commerce
-  - SQL works best for clearly defined, discrete items with exact specifications. Typical use cases are online stores and banking systems. (https://www.sitepoint.com/sql-vs-nosql-choose/)
+  - principalement pour des raisons historiques : https://www.quora.com/Why-would-developers-pair-MongoDB-with-Node-js-when-a-traditional-relational-database-will-perform-optimized-joins-on-the-database-server?share=1
+
+- Pourquoi choisir une base de donnée relationnelle ?
+  - SQL est optimal lorsqu'il faut gérer des données définies comme dans le cas d'un site e-commerce.
+    - SQL works best for clearly defined, discrete items with exact specifications. Typical use cases are online stores and banking systems. (https://www.sitepoint.com/sql-vs-nosql-choose/)
+  - MongoDB est un système NoSQL (non-relational database), nous n'utiliserons pas MongoDB par facilité
+
+- Quel SGBD choisir ?
+  - au niveau de notre projet cela ne fait pas une grande différence de choisir un SGBD plutôt qu'un autre.
+  - nous avons choisi arbitrairement d'utiliser PostgreSQL
+
+### misc
+
 - Comment gérer la base de donnée pour un site multilangue ?
   - Prestashop: "Tables which contain translations must end with the _lang suffix. For instance, ps_product_lang contains all the translations for the ps_product table."
     - src: https://devdocs.prestashop.com/1.7/development/database/
 
+- la base de donnée s'inspire fortement de la structure de la base de Prestashop: https://devdocs.prestashop.com/1.7/development/database/
+
+- note: comment récupérer le nombre de produits vendus pour une référence ?
+  - ajouter une COLUMN "sold" à la TABLE product `ALTER TABLE api.product ADD COLUMN sold INT NULL;`
+  - calculer le nombre de produits vendus à partir des commandes passées :
+    - pour un produit : additionner les champs "quantity" où le produit est présent dans une commande (order) validée (payée)
+
+
 ### documentation
+
+- nodeJs w/ PostgreSQL: https://medium.com/dailyjs/node-js-postgresql-tutorial-7a19d945767f
+- https://node-postgres.com/
 
 - https://www.mongodb.com/nosql-explained/nosql-vs-sql
 - https://www.mongodb.com/nosql-explained
+
+## non trié
+
+- ressources NodeJs/Postgres/REST API
+  - https://www.taniarascia.com/node-express-postgresql-heroku/
+  - https://www.robinwieruch.de/postgres-express-setup-tutorial
+  - https://scotch.io/tutorials/getting-started-with-node-express-and-postgres-using-sequelize
+  - https://bezkoder.com/node-express-sequelize-postgresql/
+  - https://www.robinwieruch.de/postgresql-express-node-rest-api
+  - https://www.smashingmagazine.com/2020/04/express-api-backend-project-postgresql/
+
+- s'il y a besoin d'utiliser les sessions ou les cookies, penser à regarder le paquet npm csurf (CSRF protection)
+
+- tester l'API avec curl (linux, ligne de commande): https://www.codepedia.org/ama/how-to-test-a-rest-api-from-command-line-with-curl/#get-request
+- sinon, tester l'API avec postman
