@@ -161,3 +161,9 @@ RESTful Design with NodeJs:
 
 - tester l'API avec curl (linux, ligne de commande): https://www.codepedia.org/ama/how-to-test-a-rest-api-from-command-line-with-curl/#get-request
 - sinon, tester l'API avec postman
+
+- https://khalilstemmler.com/articles/enterprise-typescript-nodejs/clean-consistent-expressjs-controllers/
+
+- DB images: https://stackoverflow.com/questions/54500/storing-images-in-postgresql
+
+- rest cookbook: https://restcookbook.com

@@ -14,8 +14,8 @@
   - [ ] gérer les logs
     - https://nodejs.dev/learn/how-to-log-an-object-in-nodejs
   - [ ] gérer le cache
-- [ ] Documenter l'API
 
 ## API
 
 - [ ] Schématiser l'architecture de l'API
+- [ ] Documenter l'API

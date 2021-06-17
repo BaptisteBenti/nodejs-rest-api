@@ -57,7 +57,7 @@
 
 - setup database structure (TABLES):
   - create ./data/db_structure.sql: `mkdir data && touch data/db_structure.sql`
-  - fill ./data/db_structure.sql following the model on https://app.sqldbm.com/
+  - fill ./data/db_structure.sql following the model created on https://app.sqldbm.com/
     - (sqldbm creds: bbenti@pm.me / keepass)
   - create the tables: `psql api -f data/db_structure.sql`
     - note: ./data/db_structure.sql removes the default 'public' schema, a possible 'api' schema and (re)create an 'api' schema before creating all the tables using this namespace
@@ -84,23 +84,28 @@
 
 ## setup the server
 
-- notes:
-  - app.js
-    - defines the express app and its main logic
-  - config.js
-    - exports the connection to the db
-    - used by app.js
-  - .env
-    - defines env variables relative to the db
-    - used by config.js
-  - bin/www
-    - app entry point (`npm start` & `npm start:dev`)
-    - imports the app from app.js and run the server
-  - data/db_structure.sql
-    - (re)create the tables of the db
-  - data/db_data.sql
-    - add placeholder data to the db
+- app.js
+  - defines the express app and its main logic
+- config.js
+  - exports the connection to the db
+  - used by app.js
+- .env
+  - defines env variables relative to the db
+  - used by config.js
+- bin/www
+  - app entry point (`npm start` & `npm start:dev`)
+  - imports the app from app.js and run the server
+- data/db_structure.sql
+  - (re)create the tables of the db
+- data/db_data.sql
+  - add placeholder data to the db
+
+- see comments directly in files
 
 ## docker
 
 - ??
+
+## misc
+
+- https://medium.com/the-node-js-collection/10-best-practices-for-writing-node-js-rest-apis-7643a7765cd

@@ -5,8 +5,8 @@
 -- iso_code
 INSERT INTO api.lang ("id_lang", "name", "iso_code")
 VALUES
-(1, 'french', 'fr'),
-(2, 'english', 'en')
+(1, 'english', 'en')
+(2, 'français', 'fr'),
 ;
 -- ************************************** customer
 -- id_customer
