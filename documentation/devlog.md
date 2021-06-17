@@ -57,8 +57,12 @@
 
 - setup database structure (TABLES):
   - create ./data/db_structure.sql: `mkdir data && touch data/db_structure.sql`
+<<<<<<< HEAD:documentation/devlog.md
   - fill ./data/db_structure.sql following the model created on https://app.sqldbm.com/
     - (sqldbm creds: bbenti@pm.me / keepass)
+=======
+  - fill ./data/db_structure.sql following the model on https://app.sqldbm.com/
+>>>>>>> f5e8251ff0453d3b690c524fd3c04e3bf4895a80:devlog.md
   - create the tables: `psql api -f data/db_structure.sql`
     - note: ./data/db_structure.sql removes the default 'public' schema, a possible 'api' schema and (re)create an 'api' schema before creating all the tables using this namespace
 
@@ -105,7 +109,10 @@
 ## docker
 
 - ??
+<<<<<<< HEAD:documentation/devlog.md
 
 ## misc
 
 - https://medium.com/the-node-js-collection/10-best-practices-for-writing-node-js-rest-apis-7643a7765cd
+=======
+>>>>>>> f5e8251ff0453d3b690c524fd3c04e3bf4895a80:devlog.md
